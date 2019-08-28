@@ -1,9 +1,8 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import Logo from '../../Logo/Logo';
 import NavigationItems from '../NavigationItems/NavigationItems';
 import './SideDrawer.css';
 import Backdrop from '../../UI/Backdrop/Backdrop';
-import Aux from '../../../hoc/Auxx/Auxx';
 
 const sideDrawer = props => {
     let attachedClasses = ['side-drawer', 'close'];
@@ -11,7 +10,7 @@ const sideDrawer = props => {
         attachedClasses = ['side-drawer', 'open'];
     }
     return (
-        <Aux>
+        <Fragment>
             <Backdrop cancleClick={props.closed} show={props.open} />
             <div className={attachedClasses.join(' ')}>
                 <div className='logo-wrapper'>
@@ -21,7 +20,7 @@ const sideDrawer = props => {
                     <NavigationItems />
                 </nav>
             </div>
-        </Aux>
+        </Fragment>
     )
 }
 

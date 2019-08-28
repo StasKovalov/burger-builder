@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import Aux from '../Auxx/Auxx';
+import React, { Component, Fragment } from 'react';
 import './Layout.css';
 import Toolbar from '../../components/Toolbar/Toolbar';
 import SideDrawer from '../../components/Navigation/SideDrawer/SideDrawer';
@@ -22,13 +21,13 @@ class Layout extends Component {
 
     render() {
         return (
-            <Aux>
+            <Fragment>
                 <Toolbar toggleSideDrawer = {this.sideDrawerToggleHandler}/>
                 <SideDrawer open = {this.state.showSideDrawer} closed= {this.sideDrawerClosedHandler} />
                 <main className='content'>
                     {this.props.children}
                 </main>
-            </Aux>
+            </Fragment>
         )
     }
 }

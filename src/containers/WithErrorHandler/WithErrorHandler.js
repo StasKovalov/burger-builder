@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import Aux from '../Auxx/Auxx';
+import React, { Component, Fragment } from 'react';
 import Modal from '../../components/UI/Modal/Modal';
 
 const withErrorHandler = ( WrappedComponent, axios ) => {
@@ -25,12 +24,12 @@ const withErrorHandler = ( WrappedComponent, axios ) => {
 
         render() {
             return (
-        <Aux>
+        <Fragment>
             <Modal cancleOrder = { this.cancelErrorHandler } show = {this.state.error}>
                 {this.state.error ? this.state.error.message : null} 
             </Modal>
             <WrappedComponent {...this.props}/>
-        </Aux>
+        </Fragment>
             )
         }
     }

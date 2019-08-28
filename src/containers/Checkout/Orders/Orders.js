@@ -1,6 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import Order from '../../../components/Order/Order';
-import Aux from '../../../hoc/Auxx/Auxx';
 import axios from '../../../axios-orders';
 import Spinner from '../../../components/UI/Spinner/Spinner';
 
@@ -39,9 +38,9 @@ class Orders extends Component {
             orders = <Spinner/>
         }
         return (
-            <Aux>
+            <Fragment>
                 {orders}
-            </Aux>
+            </Fragment>
         )
     }
 }

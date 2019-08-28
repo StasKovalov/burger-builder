@@ -1,7 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import './Modal.css';
 import Backdrop from '../Backdrop/Backdrop';
-import Aux from '../../../hoc/Auxx/Auxx'
 
 class Modal extends Component {
 
@@ -11,7 +10,7 @@ class Modal extends Component {
 
     render() {
         return (
-            <Aux>
+            <Fragment>
                 <Backdrop cancleClick = {this.props.cancleOrder} show={this.props.show} />
                 <div className='modal'
                     style={{
@@ -20,7 +19,7 @@ class Modal extends Component {
                     }}>
                     {this.props.children}
                 </div>
-            </Aux>
+            </Fragment>
         )
     }
 

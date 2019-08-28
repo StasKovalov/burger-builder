@@ -1,6 +1,5 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import './OrderSummary.js';
-import Aux from '../../../hoc/Auxx/Auxx';
 import Button from '../../UI/Button/Button';
 
 const orderSummary = props => {
@@ -11,7 +10,7 @@ const orderSummary = props => {
             </li>
         ))
     return (
-        <Aux>
+        <Fragment>
             <h3>Your order</h3>
             <p>A delicious burger with the following ingridients:</p>
             <ul>
@@ -21,7 +20,7 @@ const orderSummary = props => {
             <p>Continue to checkout?</p>
             <Button clicked = {props.cancel} btnType = 'danger'>CANCEL</Button>
             <Button clicked = {props.continue} btnType = 'success'>CONTINUE</Button>
-        </Aux>
+        </Fragment>
     )
 }
 

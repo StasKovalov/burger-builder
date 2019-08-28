@@ -1,12 +1,11 @@
-import React, { Component } from 'react';
-import Aux from '../../hoc/Auxx/Auxx'
+import React, { Component, Fragment } from 'react';
 import Burger from '../../components/Burger/Burger'
 import BuildControls from '../../components/Burger/BuildControls/BuildControls';
 import OrderSummary from '../../components/Burger/OrderSummary/OrderSummary';
 import Modal from '../../components/UI/Modal/Modal';
 import Spinner from '../../components/UI/Spinner/Spinner';
 import axios from '../../axios-orders';
-import withErrorHandler from '../../hoc/WithErrorHandler/WithErrorHandler';
+import withErrorHandler from '../WithErrorHandler/WithErrorHandler';
 
 
 const INGRIDIENT_PRICES = {
@@ -103,7 +102,7 @@ class BurgerBuilder extends Component {
         let burger = this.state.error ? <p style={{textAlign: 'center', fontWeight: 'bold', color: 'red'}}>Ingridients can't be loaded...</p> : <Spinner />;
         if (this.state.ingridients) {
             burger = (
-                <Aux>
+                <Fragment>
                     <Burger ingridients={this.state.ingridients} />
                     <BuildControls addIng={this.addIngridientHandler}
                         removeIng={this.removeIngridientHandler}
@@ -112,7 +111,7 @@ class BurgerBuilder extends Component {
                         price={Math.abs(this.state.totalPrice.toFixed(2))}
                         ordered={this.purchaseHandler}
                     />
-                </Aux>
+                </Fragment>
             )
                 orderSummary = (
                     <OrderSummary 
@@ -127,12 +126,12 @@ class BurgerBuilder extends Component {
             orderSummary = <Spinner/>;
         }
         return (
-            <Aux>
+            <Fragment>
                 <Modal cancleOrder={this.canclePurchaseHandler} show={this.state.purchasing}>
                     {orderSummary}
                 </Modal>
                      {burger}
-            </Aux>
+            </Fragment>
         )
     }
 }
