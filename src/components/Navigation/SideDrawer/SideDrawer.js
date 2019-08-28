@@ -11,7 +11,7 @@ const sideDrawer = props => {
     }
     return (
         <Fragment>
-            <Backdrop cancleClick={props.closed} show={props.open} />
+            <Backdrop closeBackdrop={props.closed} show={props.open} />
             <div className={attachedClasses.join(' ')}>
                 <div className='logo-wrapper'>
                     <Logo />
